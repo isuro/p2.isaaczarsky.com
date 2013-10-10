@@ -8,13 +8,13 @@ For example there's a constant in core config set for TIME_FORMAT
 	if(!defined('TIME_FORMAT')) define('TIME_FORMAT', 'F j, Y g:ia'); 
 
 If you want a different default time format for this app, set it below
-
-	define('TIME_FORMAT', 'M j Y'); 
-
 */
+	define('TIME_FORMAT', 'l F j, G:i'); 
+
+
 
 # What is the name of this app?
-	define('APP_NAME', 'Sample App');  
+	define('APP_NAME', 'Spiffr');  
 
 # When email is sent out from the server, where should it come from?
 # Ideally, this should match the domain name
