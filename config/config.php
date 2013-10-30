@@ -11,7 +11,8 @@ If you want a different default time format for this app, set it below
 */
 	define('TIME_FORMAT', 'l F j, G:i'); 
 
-
+# Default database name for this app
+	define('DB_NAME', "p2_isaaczarsky_com");
 
 # What is the name of this app?
 	define('APP_NAME', 'Spiffr');  
@@ -43,5 +44,5 @@ A email designated to receive messages from the server. Examples:
 	//define('SMTP_PASSWORD', '');
 
 # For extra security, you might want to set different salts than what the core uses
-	//define('PASSWORD_SALT', '');
-	//define('TOKEN_SALT', '');
+	define('PASSWORD_SALT', '=68UZiAt7le$&EHIeniaB&u5i24I=th*uj2upouJ');
+	define('TOKEN_SALT', 'wrLaphi1jiatrluphla6rlup#ouchoafri3koafr');
