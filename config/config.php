@@ -35,7 +35,7 @@ A email designated to receive messages from the server. Examples:
 	// define('DB_NAME', 'myapp_com'); 
 
 # Timezone
-	// define('TIMEZONE', 'America/New_York');
+	define('TIMEZONE', 'America/New_York');
 
 # If your app is going to have outgoing emails, you should fill in your SMTP settings
 # For this you could use gmail SMTP or something like http://sendgrid.com/
