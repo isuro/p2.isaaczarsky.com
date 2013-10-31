@@ -29,13 +29,13 @@ A email designated to receive messages from the server. Examples:
  	
  	Some might want this to be the same as the APP_EMAIL, others might want to create a designated gmail address for it
 */ 	
-	define('SYSTEM_EMAIL', 'webmaster@myapp.com'); 
+	// define('SYSTEM_EMAIL', 'webmaster@myapp.com'); 
 
 # Default DB name for this app
-	define('DB_NAME', 'myapp_com'); 
+	// define('DB_NAME', 'myapp_com'); 
 
 # Timezone
-	define('TIMEZONE', 'America/New_York');
+	// define('TIMEZONE', 'America/New_York');
 
 # If your app is going to have outgoing emails, you should fill in your SMTP settings
 # For this you could use gmail SMTP or something like http://sendgrid.com/
