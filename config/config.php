@@ -12,7 +12,7 @@ If you want a different default time format for this app, set it below
 	define('TIME_FORMAT', 'l F j, G:i'); 
 
 # Default database name for this app
-	define('DB_NAME', "p2_isaaczarsky_com");
+	define('DB_NAME', "isaaczar_p2_isaaczarsky_com");
 
 # What is the name of this app?
 	define('APP_NAME', 'Spiffr');  
