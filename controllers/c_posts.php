@@ -8,6 +8,7 @@ class posts_controller extends base_controller {
         if(!$this->user) {
             Router::redirect('/users/login');
         }
+    }
 
     public function add() {
 
