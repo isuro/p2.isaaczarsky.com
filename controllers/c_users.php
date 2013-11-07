@@ -10,7 +10,7 @@ class users_controller extends base_controller {
         Router::redirect('/users/profile');
     }
 
-    public function signup() {
+    public function signup($error = NULL) {
 
         # Setup view
         $this->template->content = View::instance('v_users_signup');
@@ -19,6 +19,9 @@ class users_controller extends base_controller {
             <script>
             $('input[name=timezone]').val(jstz.determine().name());
             </script>";
+
+        # Error validation
+        $this->template->content->error = $error;
 
         # Render template
         echo $this->template;
@@ -29,6 +32,12 @@ class users_controller extends base_controller {
 
         # Dump out the results of POST to see what the form submitted
         // print_r($_POST);
+
+        # Check that no fields are empty, send back if they are
+
+        foreach ($_POST as $key => $value) {
+            if (!$value) Router::redirect("/users/signup/error");
+        }
 
         # More data for the database
         $_POST['created']  = Time::now();
@@ -132,19 +141,26 @@ class users_controller extends base_controller {
 
     public function profile() {
 
-    # If user is blank, they're not logged in; redirect them to the login page
-    if(!$this->user) {
-        Router::redirect('/users/login');
-    }
-
-    # If they weren't redirected away, continue:
-
     # Setup view
     $this->template->content = View::instance('v_users_profile');
     $this->template->title   = "Profile of ".$this->user->first_name;
 
+    # Query
+    $q = 'SELECT 
+            posts.content,
+            posts.created,
+            posts.user_id
+        FROM posts
+        WHERE posts.user_id = '.$this->user->user_id;
+
+    # Run the query, store the results in the variable $posts
+    $posts = DB::instance(DB_NAME)->select_rows($q);
+
+    # Pass data to the View
+    $this->template->content->posts = $posts;
+
     # Render template
     echo $this->template;
-}
+    }
 
 } # end of the class
