@@ -5,7 +5,7 @@
 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />	
 	
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 	<!-- Controller Specific JS/CSS -->
 	<?php if(isset($client_files_head)) echo $client_files_head; ?>
@@ -23,6 +23,9 @@
 
 			<a href='/users/logout'>Logout</a>
 			<a href='/users/profile'>Profile</a>
+			<a href='/posts/users'>Follow</a>
+			<a href='/posts/add'>Post</a>
+			<a href='/posts/'>Feed</a>
 
 		<!-- Menu options for users who are not logged in -->
 		<?php else: ?>
