@@ -15,6 +15,8 @@
     Password<br>
     <input type='password' name='password'>
     <br><br>
+    
+    <input type='hidden' name='timezone'>
 
     <input type='submit' value='Sign up'>
 

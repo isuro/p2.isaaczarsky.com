@@ -4,7 +4,9 @@
 	<title><?php if(isset($title)) echo $title; ?></title>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />	
-					
+	
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+
 	<!-- Controller Specific JS/CSS -->
 	<?php if(isset($client_files_head)) echo $client_files_head; ?>
 	
@@ -25,7 +27,7 @@
 		<!-- Menu options for users who are not logged in -->
 		<?php else: ?>
 
-			<a href='/users/signup'>Sign up</a>
+			 <a href='/users/signup'>Sign up</a>
 			<a href='/users/login'>Log in</a>
 
 		<?php endif; ?>

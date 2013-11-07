@@ -15,6 +15,10 @@ class users_controller extends base_controller {
         # Setup view
         $this->template->content = View::instance('v_users_signup');
         $this->template->title   = "Sign Up";
+        $this->template->client_files_head = "<script type=\"text/javascript\" src=\"http://cdnjs.cloudflare.com/ajax/libs/jstimezonedetect/1.0.4/jstz.min.js\"></script>
+            <script>
+            $('input[name=timezone]').val(jstz.determine().name());
+            </script>";
 
         # Render template
         echo $this->template;
