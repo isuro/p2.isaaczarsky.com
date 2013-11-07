@@ -7,7 +7,7 @@ class users_controller extends base_controller {
     } 
 
     public function index() {
-        echo "This is the index page";
+        Router::redirect('/users/profile');
     }
 
     public function signup() {
@@ -105,6 +105,14 @@ class users_controller extends base_controller {
     }
 
     public function logout() {
+
+    # If user is blank, they're not logged in; redirect them to the login page
+    if(!$this->user) {
+        Router::redirect('/users/login');
+    }
+
+    # If they weren't redirected away, continue:
+
     # Generate and save a new token for next login
     $new_token = sha1(TOKEN_SALT.$this->user->email.Utils::generate_random_string());
 
