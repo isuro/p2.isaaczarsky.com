@@ -35,7 +35,7 @@ class users_controller extends base_controller {
 
         # Check that no fields are empty, send back if they are
 
-        if (!isset($_POST['first_name']) && !isset($_POST['last_name']) && !isset($_POST['email']) && !isset($_POST['password'])))) {
+        if (!isset($_POST['first_name']) && !isset($_POST['last_name']) && !isset($_POST['email']) && !isset($_POST['password'])) {
             if (!$value) Router::redirect("/users/signup/error");
         }
 
