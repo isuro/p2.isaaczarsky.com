@@ -9,7 +9,8 @@
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
 
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/js/scripts.js"></script>
 
 	<!-- Controller Specific JS/CSS -->
 	<?php if(isset($client_files_head)) echo $client_files_head; ?>
@@ -37,7 +38,8 @@
 
 					<li><a href='/users/profile'>Profile</a></li>
 					<li><a href='/posts/users'>Follow</a></li>
-					<li><a href='/posts/add'>Post</a></li>
+					<!-- <li><a href='/posts/add'>Post</a></li> -->
+					<li><a href='#' data-toggle='modal' data-target='#postModal'>Post</a></li>
 					<li><a href='/posts/'>Feed</a></li>
 					<li><a href='/users/logout'>Logout</a></li>
 
@@ -53,6 +55,30 @@
 		</div>
 	</div>
 		<div class="container">
+			<!-- Feedback on a submitted post -->
+			<?php if(isset($post_submitted)) echo $post_submitted; ?>
+			<!-- New post modal for logged in users only -->
+			<?php if($user): ?>
+				<div class="modal fade" id="postModal" tabindex="-1">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title" id="newPostModal">New post:</h4>
+							</div>
+							<form method='POST' action='<?php echo $_SERVER['PHP_SELF']; ?>'>
+
+								<div class="modal-body">
+									<textarea name='content' id='content' class='form-control' rows='5' onkeyup="stoppedTyping()"></textarea>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal">Dismiss</button>
+									<button type="submit" class="btn btn-primary" disabled="disabled" id="submit-post">Submit</button>
+								</div>
+							</form>
+						</div><!-- /.modal-content -->
+					</div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->
+			<?php endif; ?>
 		<br>
 
 
