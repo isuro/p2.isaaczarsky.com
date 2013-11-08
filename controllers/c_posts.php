@@ -46,7 +46,7 @@ class posts_controller extends base_controller {
         $this->template->title   = "All Posts";
 
         # Query
-        $q = 'SELECT 
+        $q = 'SELECT
                 posts.content,
                 posts.created,
                 posts.user_id AS post_user_id,
@@ -58,7 +58,7 @@ class posts_controller extends base_controller {
                 ON posts.user_id = users_users.user_id_followed
             INNER JOIN users 
                 ON posts.user_id = users.user_id
-            WHERE users_users.user_id = '.$this->user->user_id.' OR posts.user_id = '.$this->user->user_id.'
+            WHERE users_users.user_id = '.$this->user->user_id.'
             ORDER BY posts.created DESC';
 
         # Run the query, store the results in the variable $posts
@@ -80,7 +80,8 @@ class posts_controller extends base_controller {
 
         # Build the query to get all the users
         $q = "SELECT *
-        FROM users";
+        FROM users
+        WHERE NOT user_id = ".$this->user->user_id;
 
         # Execute the query to get all the users. 
         # Store the result array in the variable $users
@@ -90,7 +91,7 @@ class posts_controller extends base_controller {
         # I.e. who are they following
         $q = "SELECT * 
         FROM users_users
-        WHERE user_id = ".$this->user->user_id;
+        WHERE user_id = ".$this->user->user_id." AND NOT user_id_followed = ".$this->user->user_id;
 
         # Execute this query with the select_array method
         # select_array will return our results in an array and use the "users_id_followed" field as the index.

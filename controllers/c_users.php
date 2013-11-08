@@ -52,6 +52,17 @@ class users_controller extends base_controller {
         # Insert this user into the database
         $user_id = DB::instance(DB_NAME)->insert('users', $_POST);
 
+        # User follows themself
+        # Prepare the data array to be inserted
+        $data = Array(
+            "created" => Time::now(),
+            "user_id" => $this->user->user_id,
+            "user_id_followed" => $this->user->user_id
+            );
+
+        # Do the insert
+        DB::instance(DB_NAME)->insert('users_users', $data);
+
         # For now, just confirm they've signed up - 
         # You should eventually make a proper View for this
         Router::redirect("/");
@@ -156,7 +167,8 @@ class users_controller extends base_controller {
             posts.created,
             posts.user_id
         FROM posts
-        WHERE posts.user_id = '.$this->user->user_id;
+        WHERE posts.user_id = '.$this->user->user_id.'
+        ORDER BY posts.created DESC';
 
     # Run the query, store the results in the variable $posts
     $posts = DB::instance(DB_NAME)->select_rows($q);
