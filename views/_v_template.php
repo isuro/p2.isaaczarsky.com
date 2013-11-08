@@ -66,7 +66,6 @@
 								<h4 class="modal-title" id="newPostModal">New post:</h4>
 							</div>
 							<form method='POST' action='<?php echo $_SERVER['PHP_SELF']; ?>'>
-
 								<div class="modal-body">
 									<textarea name='content' id='content' class='form-control' rows='5' onkeyup="stoppedTyping()"></textarea>
 								</div>
