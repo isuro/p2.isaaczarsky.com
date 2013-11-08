@@ -5,6 +5,8 @@
 
 	<article>
 
+		<br><br>
+		
 		<p><?=$post['content']?></p>
 
 		<time datetime="<?=Time::display($post['created'],'Y-m-d G:i')?>">
